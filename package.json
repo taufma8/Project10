@@ -1,0 +1,21 @@
+{
+  "name": "techdegree-project-10",
+  "version": "1.0.0",
+  "description": "Full Stack App with React and a REST API",
+  "main": "app,js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Maliha",
+  "license": "MIT",
+
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
