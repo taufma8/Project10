@@ -19,35 +19,37 @@ class CreateCourse extends Component {
         err:"",
         isLoaded: false,
         signedIn: false,
-        id:""
+        id: ""
     }
   }
+  
    //method for a POST request to update all of the changes that are made
    createCourse = (id, title, description, estimatedTime,materialsNeeded) => {
     axios.post(`http://localhost:5000/api/courses/`,{
-      title:title,
+      title: title,
       description: description,
       estimatedTime: estimatedTime,
       materialsNeeded: materialsNeeded,
+      userId: id
          
      }, {  
      headers:{
       'Authorization': JSON.parse(window.localStorage.getItem('auth'))
         }  
-    }).then(res =>{
+    }).then(response =>{
         this.props.history.push(`/courses`);
     //specific errors based on the API results that renders into the html
-    }).catch(err =>{
-      if (err.response.status === 400) {
+    }).catch(error => {
+      if (error.response.status === 400) {
         this.setState({validationError: true, validMessage: "Validation Error"});
-        if (err.response.data.message === "Title is required") {
+        if (error.response.data.message === "Title is required") {
           this.setState({titleError: "Title is required"})
         }
-        if (err.response.data.message === "Description is required") {
+        if (error.response.data.message === "Description is required") {
           this.setState({descError: "Description is required"})
         }
-      } else if (err.response.status === 500) {
-        console.log(err);
+      } else if (error.response.status === 500) {
+        console.log(error);
       }
     });
     };

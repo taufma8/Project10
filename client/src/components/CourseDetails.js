@@ -22,7 +22,7 @@ class CourseDetails extends Component {
     }
     //Gets courses based off of their id
     componentDidMount() {
-      axios.get(`http://localhost:5000/api/courses/${this.props.id}`)
+      axios.get(`http://localhost:5000/api/courses/${this.props.match.params.id}`)
           .then(res => {
               this.setState({
                   isLoaded: true,

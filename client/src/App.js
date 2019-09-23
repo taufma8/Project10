@@ -45,6 +45,7 @@ class App extends Component {
     }).then(response => {
         //enters users info into a local database to be used for authentication
         if(response.status === 200 || response.status ===304) {           
+            response.data.password = password
             //sets the state for the user when signed in
             this.setState({
                 user: response.data,
@@ -54,7 +55,7 @@ class App extends Component {
                 validation:true,
                 validUser:true
             });
-            // from: https://www.robinwieruch.de/local-storage-react/
+     
             localStorage.setItem("user", JSON.stringify(response.data))
             localStorage.setItem("auth", JSON.stringify(response.config.headers.Authorization))
 

@@ -35,7 +35,7 @@
                  title:res.data.title,
                  materialsNeeded:res.data.materialsNeeded,
                  estimatedTime:res.data.estimatedTime,
-                 id: res.data._id,
+                 id: res.data.id,
                  firstName:res.data.firstName,
                  lastName:res.data.lastName
              })
