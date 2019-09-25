@@ -19,7 +19,7 @@ class CreateCourse extends Component {
         err:"",
         isLoaded: false,
         signedIn: false,
-        id: ""
+        id: this.props.context.authenticated.user.id
     }
   }
   
